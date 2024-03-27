@@ -8,15 +8,23 @@ function Interface() {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		try {
-			const response = await axios.get(`http://localhost:4000/paystack?amount=${amount}&email=${email}`)
+			const response = await axios.get(
+				`http://localhost:4000/paystack?amount=${amount}&email=${email}`
+			)
 			console.log(response)
+			if (!response.data.success) throw Error("Error initalizing transaction.")
+			window.location.href = response.data.authUrl
+			return null
 		} catch (error) {
 			console.log(error)
 		}
 	}
 
 	return (
-		<section className=" md:px-12 p-4 pt-16 my-8 mb-0 bg-gray-200" name="contact" id="contact">
+		<section
+			className=" md:px-12 p-4 pt-16 my-8 mb-0 bg-gray-200"
+			name="contact"
+			id="contact">
 			<div className="container max-w-screen-2xl mx-auto">
 				{/* Form */}
 				<div className="col-span-12 md:col-span-7 w-full">
@@ -51,7 +59,9 @@ function Interface() {
 							</div>
 
 							<div className="col-span-12 text-center">
-								<button className="p-3 px-8 bg-gray-700 rounded-md text-white w-44 font-semibold ">Pay</button>
+								<button className="p-3 px-8 bg-gray-700 rounded-md text-white w-44 font-semibold ">
+									Pay
+								</button>
 							</div>
 							{/* <div className="col-span-12 text-center">
 								<button className="p-3 px-8 bg-primary hover:bg-primaryHover rounded-md text-white w-44 font-semibold " disabled={isSending}>
