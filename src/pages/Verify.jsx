@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { axios } from "axios"
+import axios from "axios"
 
 function Verify() {
 	const { reference } = useParams()
