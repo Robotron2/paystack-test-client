@@ -33,7 +33,7 @@ function Verify() {
 							Payment verified. I will eat your money jsyk
 						</h1>
 						<div className="bg-blue-500 font-bold text-2xl text-white w-fit p-2 rounded-xl mt-4">
-							<a href="https://zingitalmedia.com">Proceed to home</a>
+							<a href="https://paystack-test-client.vercel.app">Proceed to home</a>
 						</div>
 					</>
 				) : (
@@ -42,7 +42,7 @@ function Verify() {
 							Payment not verified, check again.
 						</h1>
 						<div className="bg-blue-500 font-bold text-2xl text-white w-fit p-2 rounded-xl mt-4">
-							<a href="https://zingitalmedia.com">Proceed to home</a>
+							<a href="https://paystack-test-client.vercel.app">Proceed to home</a>
 						</div>
 					</>
 				)}

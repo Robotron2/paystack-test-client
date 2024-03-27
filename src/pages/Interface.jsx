@@ -1,9 +1,10 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function Interface() {
 	const [amount, setAmount] = useState("")
 	const [email, setEmail] = useState("")
+	const [workingServer, setWorkingServer] = useState("")
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
@@ -17,6 +18,19 @@ function Interface() {
 			console.log(error)
 		}
 	}
+	const checkStats = async () => {
+		const baseUrl = `${import.meta.env.VITE_API_URL}`
+		try {
+			const response = await axios.get(baseUrl)
+			response.data.success && setWorkingServer(true)
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	useEffect(() => {
+		checkStats()
+	}, [])
 
 	return (
 		<section className=" md:px-12 p-4 pt-16 my-8 mb-0 bg-gray-200" name="contact" id="contact">
@@ -54,9 +68,17 @@ function Interface() {
 							</div>
 
 							<div className="col-span-12 text-center">
-								<button className="p-3 px-8 bg-gray-700 rounded-md text-white w-44 font-semibold ">
-									Pay
-								</button>
+								{workingServer ? (
+									<button
+										className="p-3 px-8 bg-gray-700 rounded-md text-white w-44 font-semibold "
+										onClick={handleSubmit}>
+										Pay
+									</button>
+								) : (
+									<button className="p-3 px-8 bg-gray-700 rounded-md text-white w-44 font-semibold ">
+										Hold on
+									</button>
+								)}
 							</div>
 							{/* <div className="col-span-12 text-center">
 								<button className="p-3 px-8 bg-primary hover:bg-primaryHover rounded-md text-white w-44 font-semibold " disabled={isSending}>
