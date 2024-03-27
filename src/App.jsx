@@ -8,7 +8,7 @@ function App() {
 		<Router>
 			<Routes>
 				<Route path="/" element={<Interface />} />
-				<Route path="/transaction/verify" element={<Verify />} />
+				<Route path="/transaction/verify/:reference" element={<Verify />} />
 			</Routes>
 		</Router>
 	)
