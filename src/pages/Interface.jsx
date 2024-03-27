@@ -69,9 +69,7 @@ function Interface() {
 
 							<div className="col-span-12 text-center">
 								{workingServer ? (
-									<button
-										className="p-3 px-8 bg-gray-700 rounded-md text-white w-44 font-semibold "
-										onClick={handleSubmit}>
+									<button className="p-3 px-8 bg-gray-700 rounded-md text-white w-44 font-semibold ">
 										Pay
 									</button>
 								) : (
