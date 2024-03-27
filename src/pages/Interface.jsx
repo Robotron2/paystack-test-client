@@ -36,6 +36,7 @@ function Interface() {
 		<section className=" md:px-12 p-4 pt-16 my-8 mb-0 bg-gray-200" name="contact" id="contact">
 			<div className="container max-w-screen-2xl mx-auto">
 				{/* Form */}
+				<h1 className="text-3xl font-bold text-center text-gray-800">Pay fake money</h1>
 				<div className="col-span-12 md:col-span-7 w-full">
 					<div>
 						<form className="grid grid-cols-12 gap-4 p-4" onSubmit={handleSubmit}>

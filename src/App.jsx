@@ -14,3 +14,18 @@ function App() {
 	)
 }
 export default App
+// Network Error
+// axios.get('yourEndpoint').then(response => {
+// 	console.log(response.data);
+//   }).catch(error => {
+// 	if (!error.response) {
+// 	  // network error
+// 	  console.error('Network Error', error.message);
+// 	} else {
+// 	  // http status code
+// 	  const code = error.response.status;
+// 	  // response data
+// 	  const response = error.response.data;
+// 	  console.error('Error Code:', code, 'Response:', response);
+// 	}
+//   });
