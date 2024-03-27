@@ -7,7 +7,8 @@ function Verify() {
 	const { reference } = useParams()
 	if (!reference) window.location.href = "/"
 	const verifyTransaction = async () => {
-		const verify = await axios.get(`http://localhost:4000/paystack/verify?ref=${reference}`)
+		const verifyUrl = `${import.meta.env.VITE_API_URL}/paystack/verify?ref=${reference}`
+		const verify = await axios.get(verifyUrl)
 		console.log(verify)
 	}
 	useEffect(() => {
