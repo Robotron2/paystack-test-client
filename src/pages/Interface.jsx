@@ -10,9 +10,7 @@ function Interface() {
 		try {
 			const initUrl = `${import.meta.env.VITE_API_URL}/paystack?amount=${amount}&email=${email}`
 			const response = await axios.get(initUrl)
-			console.log(response)
-			if (!response.data.success) throw Error("Error initalizing transaction.")
-			window.location.href = response.data.authUrl
+			if (response.data.success) window.location.href = response.data.authUrl
 			return null
 		} catch (error) {
 			console.log(error)
