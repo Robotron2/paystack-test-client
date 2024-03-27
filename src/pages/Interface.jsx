@@ -8,6 +8,7 @@ function Interface() {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		try {
+			console.log("Clicked")
 			const initUrl = `${import.meta.env.VITE_API_URL}/paystack?amount=${amount}&email=${email}`
 			const response = await axios.get(initUrl)
 			if (response.data.success) window.location.href = response.data.authUrl
